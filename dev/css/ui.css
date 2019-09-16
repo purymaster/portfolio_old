@@ -1,0 +1,16 @@
+@charset "UTF-8";
+b {display:none; background:red;}
+a {display:inline; -webkit-transform:all 0.5s; transform:all 0.5s;}
+a b {display:none; overflow:hidden; z-index:1;}
+a.c {display:none; overflow:hidden; z-index:1;}
+a.c .d {display:table;}
+a .d {display:none;}
+/* 주석 */
+.c {display:none; visibility:hidden; background:none;}
+/* 주석1 */
+@media screen and (max-width: 992px) {body {background-color:blue;}
+	a {display:inline; -webkit-transform:all 0.5s; transform:all 0.5s;}
+	a b {display:none;}
+	.c {display:none; background:none;}}
+
+/*# sourceMappingURL=ui.css.map */
