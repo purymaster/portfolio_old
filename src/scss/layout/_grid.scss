@@ -1,0 +1,14 @@
+/* ===== Grid ===== */
+
+$padding: 30px;
+
+.container {
+    position: relative;
+    max-width: 1280px + $padding * 2;
+    margin: 0 auto;
+    padding: 0 $padding;
+    @include screen("mobile") {
+        $padding: 15px;
+        padding: 0 $padding;
+    }
+}

@@ -2,7 +2,7 @@
 const src = 'src',
 	dev = 'dev',
 	srcPath = {
-		html: `${src}/html/*.html`,
+		html: `${src}/*.html`,
 		scss: `${src}/scss/**/*.scss`,
 		font: `${src}/font/*`,
 		js: `${src}/js/*.js`,
@@ -10,7 +10,7 @@ const src = 'src',
 		include: `${src}/inc/`
 	},
 	devPath = {
-		html: `${dev}/html`,
+		html: `${dev}`,
 		css: `${dev}/css/`,
 		font: `${dev}/font/`,
 		js: `${dev}/js/`,

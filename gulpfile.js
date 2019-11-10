@@ -5,16 +5,14 @@ const gulp = require('gulp'),
 	sync = require('browser-sync').create(),
 	include = require('gulp-file-include'),
 	sass = require('gulp-sass'),
-	csscomb = require('gulp-csscomb'),
-	removeLine = require('gulp-remove-empty-lines'),
 	prefix = require('gulp-autoprefixer'),
 	pretty = require('gulp-pretty-html'),
 	beautify = require('gulp-beautify'),
 	sourcemap = require('gulp-sourcemaps'),
 	imagemin = require('gulp-imagemin'),
 	config = require('./config.js'),
+	removeline = require('gulp-remove-empty-lines'),
 	combConfig = require('./csscomb.json');
-
 sass.compiler = require('node-sass');
 
 // Clean
@@ -34,8 +32,10 @@ gulp.task('html', () => {
 			basepath: config.srcPath.include
 		}))
 		.pipe(pretty({
-			indent_with_tabs: true
+			indent_with_tabs: true,
+			unformatted: []
 		}))
+		.pipe(removeline())
 		.pipe(gulp.dest(config.devPath.html))
 		.pipe(
 			sync.reload({
@@ -50,16 +50,14 @@ gulp.task('scss', () => {
 		.src(config.srcPath.scss)
 		.pipe(sourcemap.init())
 		.pipe(sass({
-			outputStyle: 'compact',
+			outputStyle: 'expanded',
 			indentWidth: 1,
 			indentType: 'tab',
 		}).on('error', sass.logError))
 		.pipe(prefix({
-			browsers: ['last 2 versions'],
+			overrideBrowserslist: ['last 2 versions'],
 			cascade: false
 		}))
-		.pipe(csscomb(combConfig))
-		.pipe(removeLine())
 		.pipe(sourcemap.write('./'))
 		.pipe(gulp.dest(config.devPath.css))
 		.pipe(
@@ -122,10 +120,10 @@ gulp.task('sync', ['html'], () => {
 	sync.init({
 		port: 8080,
 		server: {
-			baseDir: './',
-			index: 'map_list.html'
+			baseDir: './dev',
+			index: 'index.html'
 		},
-		browser: ['google chrome']
+		browser: ['google chrome', 'chrome']
 		// browser: ['google chrome', 'firefox', 'iexplore', 'opera', 'safari']
 	});
 });

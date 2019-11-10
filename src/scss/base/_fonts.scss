@@ -1,44 +1,18 @@
-a {
-	display: inline;
-	transform: all 0.5s;
-	b {
-		z-index: 1;
-		overflow: hidden;
-		display: none;
-	}
-	&.c {
-		z-index: 1;
-		overflow: hidden;
-		display: none;
-		.d {
-			display:table;
-		}
-	}
-	.d {
-		display: none;
-	}
-}
-/* 주석 */
-.c {
-	visibility: hidden;
-	display: none;
-	background: none;
-}
-/* 주석1 */
-@media screen and (max-width: 992px) {
-	body {
-		background-color: blue;
-	}
-	a {
-		display: inline;
-		transform: all 0.5s;
+@import "../helpers/_mixins";
 
-		b {
-			display: none;
-		}
-	}
-	.c {
-		display: none;
-		background: none;
-	}
-}
+// font-face @mixin의 파라미터
+// 선언명, 경로(파일명 포함, 확장자 제외), 굵기, 스타일, 확장자 순
+
+/* ===== Font ===== */
+
+/* Noto Sans */
+@include font-face("Noto Sans KR", "../font/notokr_regular", normal, normal, eot woff2 woff);
+@include font-face("Noto Sans KR", "../font/notokr_medium", 500, normal, eot woff2 woff);
+@include font-face("Noto Sans KR", "../font/notokr_bold", 700, normal, eot woff2 woff);
+@include font-face("Noto Sans KR", "../font/notokr_black", 900, normal, eot woff2 woff);
+
+/* Nanum Square */
+@include font-face("Nanum Square", "../font/nsquare_light", 300, normal, eot otf woff2 woff);
+@include font-face("Nanum Square", "../font/nsquare_regular", normal, normal, eot otf woff2 woff);
+@include font-face("Nanum Square", "../font/nsquare_bold", 700, normal, eot otf woff2 woff);
+@include font-face("Nanum Square", "../font/nsquare_extrabold", 800, normal, eot otf woff2 woff);

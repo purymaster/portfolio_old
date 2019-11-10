@@ -1,0 +1,17 @@
+/* ===== Buttons ===== */
+
+.btn_wrap {
+    margin-top: 50px;
+    text-align: center;
+    a {
+        display: inline-block;
+        line-height: 3em;
+        padding: 0 10px;
+        font-size: 16px;
+        border: 1px solid #000;
+        transition: all 0.3s;
+        &:hover {
+            background: #000;
+        }
+    }
+}

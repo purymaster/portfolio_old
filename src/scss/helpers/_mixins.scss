@@ -1,0 +1,31 @@
+// Font Face
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf) {
+    $src: null;
+    $formats: (
+        eot: "embedded-opentype",
+        otf: "opentype",
+        ttf: "truetype"
+    );
+    @each $ext in $exts {
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $ext)) format(quote($format)), comma);
+    }
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}
+
+// Media Query
+@mixin screen($width) {
+    @if map-has-key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @media (max-width: $width) {
+            @content;
+        }
+    } @else {
+        @error "'#{$width}'은(는) 정의되지 않은 breakpoint입니다.";
+    }
+}

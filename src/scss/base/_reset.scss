@@ -1,6 +1,238 @@
 @import "../helpers/_variables";
+@import "../helpers/_mixins";
 
-b {
-  display: none;
-  background: $color;
+/* ===== Reset ===== */
+
+html {
+    font-size: 1em;
+    letter-spacing: $letter_spacing_base;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: $font_cont, $font_family;
+    font-size: 100%;
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="submit"],
+input[type="reset"],
+input[type="tel"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="file"],
+button,
+textarea {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    font-family: $font_cont, $font_family;
+    font-size: 100%;
+    letter-spacing: $letter_spacing_base;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    position: relative;
+    background: #fff;
+    font-size: 14px;
+    line-height: $line_height_base;
+    color: $color_base;
+    word-wrap: break-word;
+    word-break: keep-all;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+table {
+    width: 100%;
+    background: #fff;
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+a {
+    color: $color_base;
+    text-decoration: none;
+}
+button::-moz-focus-inner {
+    margin-top: -2px;
+    margin-bottom: -2px;
+    padding: 0;
+    border: 0;
+}
+input::-moz-focus-inner {
+    margin-top: -2px;
+    margin-bottom: -2px;
+    padding: 0;
+    border: 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+button {
+    cursor: pointer;
+    background: transparent;
+}
+button span {
+    position: relative;
+}
+textarea {
+    resize: none;
+}
+em,
+address,
+i {
+    font-style: normal;
+}
+:focus {
+    outline: 1px solid red;
+}
+:invalid {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+:-moz-submit-invalid {
+    box-shadow: none;
+}
+:-moz-ui-invalid {
+    box-shadow: none;
+}
+label {
+    cursor: pointer;
+}
+
+/* PC, Mobile Control */
+.pc {
+    display: block !important;
+    @include screen("tablet") {
+        display: none !important;
+    }
+}
+.mobile {
+    display: none !important;
+    @include screen("tablet") {
+        display: block !important;
+    }
+}
+
+/* Hidden */
+.hidden {
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+/* Placeholder */
+$vendors: ("::-webkit-input-", ":-ms-input-", "::-moz-", ":-moz-");
+
+@each $vendor in $vendors {
+    #{$vendor}placeholder {
+        font-weight: 400;
+        color: $color_placeholder;
+    }
 }
