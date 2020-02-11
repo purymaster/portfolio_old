@@ -1,6 +1,7 @@
 /* ===== Contents ===== */
 
 $projects: (
+    arisys,
     cite,
     olympiad,
     handok,
@@ -22,7 +23,8 @@ $projects: (
 
 .work {
     overflow: hidden;
-    margin: 50px -15px;
+    margin: 0 -15px;
+    padding: 35px 0;
     li {
         float: left;
         position: relative;
@@ -37,22 +39,37 @@ $projects: (
             border: 1px solid #ccc;
             background-size: cover;
             background-position: center;
-            transition:all 0.3s;
+            transition: all 0.3s;
             filter: grayscale(0.75);
+            &:focus,
             &:hover {
                 filter: grayscale(0);
+                .cover {
+                    background: rgba(0, 0, 0, 0.75);
+                    .tit {
+                        opacity: 1;
+                        transform: translate(-50%, -50%) scale(1);
+                    }
+                }
             }
         }
         .cover {
-            display: table;
             position: absolute;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            transition: all 0.3s;
             .tit {
-                display: table-cell;
-                vertical-align: middle;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                font-size: 16px;
+                font-weight: 700;
+                color: #fff;
+                opacity: 0;
+                transition: all 0.3s;
+                transform: translate(-50%, -50%) scale(1.2);
             }
         }
         &:nth-child(even) {

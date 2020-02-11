@@ -66,7 +66,7 @@ Version : 1.0
 /* ===== Reset ===== */
 html {
 	font-size: 1em;
-	letter-spacing: -0.04em;
+	letter-spacing: -0.025em;
 }
 
 html,
@@ -183,7 +183,7 @@ textarea {
 	background: none;
 	font-family: "Noto Sans KR", "Helvetica Neue", "Apple SD Gothic Neo", "Droid Sans", "Malgun Gothic", "맑은 고딕", Dotum, 돋움, sans-serif;
 	font-size: 100%;
-	letter-spacing: -0.04em;
+	letter-spacing: -0.025em;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -195,7 +195,7 @@ body {
 	background: #fff;
 	font-size: 14px;
 	line-height: 1.5em;
-	color: #333;
+	color: #666;
 	word-wrap: break-word;
 	word-break: keep-all;
 	-webkit-text-size-adjust: none;
@@ -222,7 +222,7 @@ li {
 }
 
 a {
-	color: #333;
+	color: #666;
 	text-decoration: none;
 }
 
@@ -262,10 +262,6 @@ em,
 address,
 i {
 	font-style: normal;
-}
-
-:focus {
-	outline: 1px solid red;
 }
 
 :invalid {
@@ -517,13 +513,6 @@ label {
 	opacity: 1 \0 /IE89 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-	.themed {
-		background: white;
-		color: black;
-	}
-}
-
 /* ===== Buttons ===== */
 .btn_wrap {
 	margin-top: 50px;
@@ -532,10 +521,11 @@ label {
 
 .btn_wrap a {
 	display: inline-block;
-	line-height: 3em;
+	line-height: 2em;
 	padding: 0 10px;
-	font-size: 16px;
 	border: 1px solid #000;
+	font-size: 16px;
+	font-weight: 700;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 }
@@ -559,10 +549,23 @@ label {
 }
 
 /* ===== Header ===== */
+header {
+	margin-top: 50px;
+	padding: 0.5em 0;
+	font-size: 20px;
+	text-align: center;
+}
+
+header span {
+	margin-left: 0.5em;
+	color: #881280;
+}
+
 /* ===== Contents ===== */
 .work {
 	overflow: hidden;
-	margin: 50px -15px;
+	margin: 0 -15px;
+	padding: 35px 0;
 }
 
 .work li {
@@ -587,23 +590,43 @@ label {
 	filter: grayscale(0.75);
 }
 
-.work li a:hover {
+.work li a:focus, .work li a:hover {
 	-webkit-filter: grayscale(0);
 	filter: grayscale(0);
 }
 
+.work li a:focus .cover, .work li a:hover .cover {
+	background: rgba(0, 0, 0, 0.75);
+}
+
+.work li a:focus .cover .tit, .work li a:hover .cover .tit {
+	opacity: 1;
+	-webkit-transform: translate(-50%, -50%) scale(1);
+	transform: translate(-50%, -50%) scale(1);
+}
+
 .work li .cover {
-	display: table;
 	position: absolute;
-	left: 0;
 	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 .work li .cover .tit {
-	display: table-cell;
-	vertical-align: middle;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-size: 16px;
+	font-weight: 700;
+	color: #fff;
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	-webkit-transform: translate(-50%, -50%) scale(1.2);
+	transform: translate(-50%, -50%) scale(1.2);
 }
 
 .work li:nth-child(even) {
@@ -623,6 +646,10 @@ label {
 		-webkit-animation-name: fadeInUp !important;
 		animation-name: fadeInUp !important;
 	}
+}
+
+.work li.arisys a {
+	background-image: url(../img/thumb/thumb_arisys.gif);
 }
 
 .work li.cite a {
@@ -694,5 +721,20 @@ label {
 }
 
 /* ===== Footer ===== */
+footer {
+	margin-top: 50px;
+	text-align: center;
+}
+
+footer .misc {
+	margin-bottom: 30px;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #252525;
+		color: #fff;
+	}
+}
 
 /*# sourceMappingURL=ui.css.map */

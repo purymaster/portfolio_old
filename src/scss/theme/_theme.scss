@@ -1,0 +1,12 @@
+// Dark
+$color_bg: #252525;
+$color_default: #fff;
+$color_primary: #35d4c7;
+$color_sub: #8754da;
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: $color_bg;
+        color: $color_default;
+    }
+}

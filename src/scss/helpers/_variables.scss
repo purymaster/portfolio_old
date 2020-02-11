@@ -2,13 +2,14 @@
 $font_tit: "Nanum Square";
 $font_cont: "Noto Sans KR";
 $font_family: "Helvetica Neue", "Apple SD Gothic Neo", "Droid Sans", "Malgun Gothic", "맑은 고딕", Dotum, 돋움, sans-serif;
-$letter_spacing_base: -0.04em;
+$letter_spacing_base: -0.025em;
 $line_height_base: 1.5em;
 
-// Color
-$color_primary: red;
-$color_sub: blue;
-$color_base: #333;
+// Default Color
+$color_bg: #fff;
+$color_default: #666;
+$color_primary: #881280;
+$color_sub: #994500;
 $color_placeholder: #ccc;
 
 // Media Query

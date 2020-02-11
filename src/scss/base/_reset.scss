@@ -124,10 +124,10 @@ textarea {
 }
 body {
     position: relative;
-    background: #fff;
+    background: $color_bg;
     font-size: 14px;
     line-height: $line_height_base;
-    color: $color_base;
+    color: $color_default;
     word-wrap: break-word;
     word-break: keep-all;
     -webkit-text-size-adjust: none;
@@ -150,7 +150,7 @@ li {
     list-style: none;
 }
 a {
-    color: $color_base;
+    color: $color_default;
     text-decoration: none;
 }
 button::-moz-focus-inner {
@@ -183,9 +183,6 @@ em,
 address,
 i {
     font-style: normal;
-}
-:focus {
-    outline: 1px solid red;
 }
 :invalid {
     -webkit-box-shadow: none;
