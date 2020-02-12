@@ -1,94 +1,99 @@
 /* ===== Contents ===== */
 
 $projects: (
-    arisys,
-    cite,
-    olympiad,
-    handok,
-    donga,
-    lamp,
-    kia,
-    sos,
-    player,
-    threecall,
-    mekics,
-    ag,
-    welstory,
-    jb,
-    star4ever,
-    joytour,
-    axn,
-    lemei
+	arisys,
+	cite,
+	olympiad,
+	handok,
+	donga,
+	lamp,
+	kia,
+	sos,
+	player,
+	threecall,
+	mekics,
+	ag,
+	welstory,
+	jb,
+	star4ever,
+	joytour,
+	axn,
+	lemei
 );
 
 .work {
-    overflow: hidden;
-    margin: 0 -15px;
-    padding: 35px 0;
-    li {
-        float: left;
-        position: relative;
-        width: 25%;
-        padding: 15px;
-        text-align: center;
-        a {
-            display: block;
-            position: relative;
-            height: 0;
-            padding-top: 56.25%;
-            border: 1px solid #ccc;
-            background-size: cover;
-            background-position: center;
-            transition: all 0.3s;
-            filter: grayscale(0.75);
-            &:focus,
-            &:hover {
-                filter: grayscale(0);
-                .cover {
-                    background: rgba(0, 0, 0, 0.75);
-                    .tit {
-                        opacity: 1;
-                        transform: translate(-50%, -50%) scale(1);
-                    }
-                }
-            }
-        }
-        .cover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transition: all 0.3s;
-            .tit {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                font-size: 16px;
-                font-weight: 700;
-                color: #fff;
-                opacity: 0;
-                transition: all 0.3s;
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-        }
-        &:nth-child(even) {
-            top: 30px;
-        }
-        @include screen("tablet") {
-            width: 50%;
-        }
-        @include screen("mobile") {
-            width: 100%;
-            top: 0 !important;
-            animation-name: fadeInUp !important;
-        }
-        @each $project in $projects {
-            &.#{$project} {
-                a {
-                    background-image: url(../img/thumb/thumb_#{$project}.gif);
-                }
-            }
-        }
-    }
+	overflow: hidden;
+	margin: 0 -15px;
+	padding: 30px 0;
+	li {
+		float: left;
+		position: relative;
+		width: 25%;
+		padding: 15px;
+		text-align: center;
+		a {
+			display: block;
+			position: relative;
+			height: 0;
+			padding-top: 56.25%;
+			border: 1px solid #ccc;
+			background-size: cover;
+			background-position: center;
+			transition: all 0.3s;
+			filter: grayscale(0.75);
+			&:focus,
+			&:hover {
+				filter: grayscale(0);
+				.cover {
+					background: rgba(0, 0, 0, 0.75);
+					.tit {
+						opacity: 1;
+						transform: translateY(-50%) scale(1);
+					}
+				}
+			}
+		}
+		.cover {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			transition: all 0.3s;
+			.tit {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				font-size: 16px;
+				font-weight: 700;
+				color: #fff;
+				text-align: center;
+				opacity: 0;
+				transition: all 0.3s;
+				transform: translateY(-50%) scale(1.2);
+			}
+		}
+		&:nth-child(even) {
+			top: 30px;
+		}
+		@include screen("tablet") {
+			width: 50%;
+		}
+		@include screen("mobile") {
+			width: 100%;
+			top: 0 !important;
+			animation-name: fadeInUp !important;
+		}
+		@each $project in $projects {
+			&.#{$project} {
+				a {
+					background-image: url(../img/thumb/thumb_#{$project}.gif);
+				}
+			}
+		}
+	}
+	@include screen("tablet") {
+		padding: 15px 0;
+	}
 }

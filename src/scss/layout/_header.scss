@@ -1,12 +1,19 @@
 /* ===== Header ===== */
 
 header {
-    margin-top:50px;
-    padding:0.5em 0;
-    font-size:20px;
-    text-align:center;
-    span {
-        margin-left:0.5em;
-        color:$color_primary;
-    }
+	margin-top: 50px;
+	padding: 0.5em 0;
+	font-size: 20px;
+	text-align: center;
+	span {
+		margin-left: 0.5em;
+		color: $color_primary;
+		@include themify("dark") {
+			color: map-deep-get($themes, "dark", "color_primary");
+		}
+	}
+	@include screen("tablet") {
+		font-size: 18px;
+		margin-top: 30px;
+	}
 }

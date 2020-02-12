@@ -13,38 +13,38 @@ $move: 50px;
 $transform: null;
 
 @each $direction in $directions {
-    .#{$direction} {
-        animation-name: $direction;
-    }
-    @if $direction == fadeInUp {
-        $transform: (0, $move, 0);
-    } @else if $direction == fadeInDown {
-        $transform: (0, -$move, 0);
-    } @else if $direction == fadeInLeft {
-        $transform: (-$move, 0, 0);
-    } @else if $direction == fadeInRight {
-        $transform: ($move, 0, 0);
-    }
-    @keyframes #{$direction} {
-        0% {
-            transform-origin: 50%;
-            opacity: 0;
-            transform: translate3d($transform);
-        }
-        100% {
-            transform-origin: 50%;
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-        }
-    }
+	.#{$direction} {
+		animation-name: $direction;
+	}
+	@if $direction == fadeInUp {
+		$transform: (0, $move, 0);
+	} @else if $direction == fadeInDown {
+		$transform: (0, -$move, 0);
+	} @else if $direction == fadeInLeft {
+		$transform: (-$move, 0, 0);
+	} @else if $direction == fadeInRight {
+		$transform: ($move, 0, 0);
+	}
+	@keyframes #{$direction} {
+		0% {
+			transform-origin: 50%;
+			opacity: 0;
+			transform: translate3d($transform);
+		}
+		100% {
+			transform-origin: 50%;
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+	}
 }
 
 .wait-animation {
-    opacity: 0;
-    animation-play-state: paused;
+	opacity: 0;
+	animation-play-state: paused;
 }
 .animated {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    opacity: 1 \0 / IE8 + 9 !important;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	opacity: 1 \0 / IE8 + 9 !important;
 }
