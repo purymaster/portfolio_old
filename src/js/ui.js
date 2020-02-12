@@ -3,7 +3,7 @@ $(function () {
     var is_mobile = false, //모바일 판별 변수
         scrollbar_width = window.outerWidth - $(window).width(); // 스크롤바 너비
 
-    /******************** 하위브라우저 경고 ********************/
+        /******************** 하위브라우저 경고 ********************/
 
     $('.ie9').find('button').on('click', function () {
         $('.ie9').fadeOut();
@@ -30,23 +30,22 @@ $(function () {
             move_delay = $(this).data('delay') * 100;
             move_duration = $(this).data('duration') * 1000;
             $(this).addClass('animated ' + move_name);
-            if (move_delay >= 0) {
+            if (move_delay >= 0)
                 $(this).css({
                     '-webkit-animation-delay': move_delay + 'ms',
                     'animation-delay': move_delay + 'ms'
                 });
-            }
-            if (move_duration >= 0) {
+            if (move_duration >= 0)
                 $(this).css({
                     '-webkit-animation-duration': move_duration + 'ms',
                     'animation-duration': move_duration + 'ms'
                 });
-            }
-            if (scroll > $(this).offset().top - start_point) $(this).removeClass('wait-animation');
-        })
+            if (scroll > $(this).offset().top - start_point)
+                $(this).removeClass('wait-animation');
+        });
 
-            //TOP 버튼 제어
-            (scroll === 0) ? top_btn.removeClass('on') : top_btn.addClass('on');
+        //TOP 버튼 제어
+        (scroll === 0) ? top_btn.removeClass('on') : top_btn.addClass('on');
 
         top_btn.find('button').on('click', function () {
             if (top_btn_flag) return false;
