@@ -855,12 +855,12 @@ footer .misc li a {
 }
 
 footer .misc li.github a {
-	background-image: url(../../img/ico/ico_github.png);
+	background-image: url(/dev/img/ico/ico_github.png);
 }
 
 @media (prefers-color-scheme: dark) {
 	footer .misc li.github a {
-		background-image: url(../../img/ico/ico_github_dark.png);
+		background-image: url(/dev/img/ico/ico_github_dark.png);
 	}
 }
 

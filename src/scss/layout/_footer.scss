@@ -18,9 +18,9 @@ footer {
 			}
 			&.github {
 				a {
-					background-image: url(../../img/ico/ico_github.png);
+					background-image: url(/dev/img/ico/ico_github.png);
 					@include themify("dark") {
-						background-image: url(../../img/ico/ico_github_dark.png);
+						background-image: url(/dev/img/ico/ico_github_dark.png);
 					}
 				}
 			}
