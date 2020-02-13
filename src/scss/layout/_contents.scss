@@ -25,12 +25,22 @@ $projects: (
 	overflow: hidden;
 	margin: 0 -15px;
 	padding: 30px 0;
+	@include screen("tablet") {
+		padding: 0;
+		padding-bottom: 50px;
+	}
+	@include screen("mobile") {
+		padding-bottom: 30px;
+	}
 	li {
 		float: left;
 		position: relative;
 		width: 25%;
 		padding: 15px;
 		text-align: center;
+		@include screen("tablet") {
+			margin-top: 15px;
+		}
 		a {
 			display: block;
 			position: relative;
@@ -46,6 +56,9 @@ $projects: (
 				filter: grayscale(0);
 				.cover {
 					background: rgba(0, 0, 0, 0.75);
+					@include screen("tablet") {
+						background: none;
+					}
 					.tit {
 						opacity: 1;
 						transform: translateY(-50%) scale(1);
@@ -60,6 +73,9 @@ $projects: (
 			width: 100%;
 			height: 100%;
 			transition: all 0.3s;
+			@include screen("tablet") {
+				position: static;
+			}
 			.tit {
 				position: absolute;
 				top: 50%;
@@ -67,11 +83,22 @@ $projects: (
 				width: 100%;
 				font-size: 16px;
 				font-weight: 700;
-				color: #fff;
+				color: $color_default;
 				text-align: center;
 				opacity: 0;
 				transition: all 0.3s;
 				transform: translateY(-50%) scale(1.2);
+				@include screen("tablet") {
+					display: block;
+					position: static;
+					margin-top: 5px;
+					font-size: 12px;
+					opacity: 1;
+					transform: scale(1) !important;
+				}
+				@include themify("dark") {
+					color: map-deep-get($themes, "dark", "color_default");
+				}
 			}
 		}
 		&:nth-child(even) {
@@ -94,6 +121,5 @@ $projects: (
 		}
 	}
 	@include screen("tablet") {
-		padding: 15px 0;
 	}
 }

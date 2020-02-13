@@ -569,7 +569,7 @@ label {
 
 @media (max-width: 599px) {
 	.btn_wrap {
-		margin-top: 10px;
+		margin-top: 15px;
 	}
 }
 
@@ -613,11 +613,31 @@ header span {
 	}
 }
 
+@media (max-width: 599px) {
+	header {
+		font-size: 16px;
+		margin-top: 15px;
+	}
+}
+
 /* ===== Contents ===== */
 .work {
 	overflow: hidden;
 	margin: 0 -15px;
 	padding: 30px 0;
+}
+
+@media (max-width: 1024px) {
+	.work {
+		padding: 0;
+		padding-bottom: 50px;
+	}
+}
+
+@media (max-width: 599px) {
+	.work {
+		padding-bottom: 30px;
+	}
 }
 
 .work li {
@@ -626,6 +646,12 @@ header span {
 	width: 25%;
 	padding: 15px;
 	text-align: center;
+}
+
+@media (max-width: 1024px) {
+	.work li {
+		margin-top: 15px;
+	}
 }
 
 .work li a {
@@ -651,6 +677,12 @@ header span {
 	background: rgba(0, 0, 0, 0.75);
 }
 
+@media (max-width: 1024px) {
+	.work li a:focus .cover, .work li a:hover .cover {
+		background: none;
+	}
+}
+
 .work li a:focus .cover .tit, .work li a:hover .cover .tit {
 	opacity: 1;
 	-webkit-transform: translateY(-50%) scale(1);
@@ -667,6 +699,12 @@ header span {
 	transition: all 0.3s;
 }
 
+@media (max-width: 1024px) {
+	.work li .cover {
+		position: static;
+	}
+}
+
 .work li .cover .tit {
 	position: absolute;
 	top: 50%;
@@ -674,13 +712,31 @@ header span {
 	width: 100%;
 	font-size: 16px;
 	font-weight: 700;
-	color: #fff;
+	color: #666;
 	text-align: center;
 	opacity: 0;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 	-webkit-transform: translateY(-50%) scale(1.2);
 	transform: translateY(-50%) scale(1.2);
+}
+
+@media (max-width: 1024px) {
+	.work li .cover .tit {
+		display: block;
+		position: static;
+		margin-top: 5px;
+		font-size: 12px;
+		opacity: 1;
+		-webkit-transform: scale(1) !important;
+		transform: scale(1) !important;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.work li .cover .tit {
+		color: #fff;
+	}
 }
 
 .work li:nth-child(even) {
@@ -772,12 +828,6 @@ header span {
 
 .work li.lemei a {
 	background-image: url(../img/thumb/thumb_lemei.gif);
-}
-
-@media (max-width: 1024px) {
-	.work {
-		padding: 15px 0;
-	}
 }
 
 /* ===== Footer ===== */

@@ -1,10 +1,11 @@
 /* ===== Grid ===== */
 
 $padding: 30px;
+$grid: 1280px;
 
 .container {
 	position: relative;
-	max-width: 1280px + $padding * 2;
+	max-width: $grid + $padding * 2;
 	margin: 0 auto;
 	padding: 0 $padding;
 	@include screen("mobile") {
