@@ -159,7 +159,7 @@ a {
 	color: $color_default;
 	text-decoration: none;
 	@include themify("dark") {
-		background: map-deep-get($themes, "dark", "color_default");
+		color: map-deep-get($themes, "dark", "color_default");
 	}
 }
 button::-moz-focus-inner {
