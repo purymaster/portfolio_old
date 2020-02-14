@@ -35,7 +35,7 @@ gulp.task('html', () => {
 			indent_with_tabs: true,
 			unformatted: []
 		}))
-		.pipe(removeline())
+		// .pipe(removeline())
 		.pipe(gulp.dest(config.devPath.html))
 		.pipe(
 			sync.reload({
