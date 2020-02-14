@@ -674,8 +674,6 @@ header span {
 	background-position: center;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
-	-webkit-filter: grayscale(0.75);
-	filter: grayscale(0.75);
 }
 
 .work li a:focus, .work li a:hover {
@@ -697,6 +695,13 @@ header span {
 	opacity: 1;
 	-webkit-transform: translateY(-50%) scale(1);
 	transform: translateY(-50%) scale(1);
+}
+
+@media (prefers-color-scheme: dark) {
+	.work li a {
+		-webkit-filter: grayscale(0.75);
+		filter: grayscale(0.75);
+	}
 }
 
 .work li .cover {

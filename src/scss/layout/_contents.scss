@@ -50,7 +50,6 @@ $projects: (
 			background-size: cover;
 			background-position: center;
 			transition: all 0.3s;
-			filter: grayscale(0.75);
 			&:focus,
 			&:hover {
 				filter: grayscale(0);
@@ -64,6 +63,9 @@ $projects: (
 						transform: translateY(-50%) scale(1);
 					}
 				}
+			}
+			@include themify("dark") {
+				filter: grayscale(0.75);
 			}
 		}
 		.cover {
