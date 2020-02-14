@@ -10,9 +10,3 @@
 @include font-face("Noto Sans KR", "../font/notokr_medium", 500, normal, eot woff2 woff);
 @include font-face("Noto Sans KR", "../font/notokr_bold", 700, normal, eot woff2 woff);
 @include font-face("Noto Sans KR", "../font/notokr_black", 900, normal, eot woff2 woff);
-
-/* Nanum Square */
-@include font-face("Nanum Square", "../font/nsquare_light", 300, normal, eot otf woff2 woff);
-@include font-face("Nanum Square", "../font/nsquare_regular", normal, normal, eot otf woff2 woff);
-@include font-face("Nanum Square", "../font/nsquare_bold", 700, normal, eot otf woff2 woff);
-@include font-face("Nanum Square", "../font/nsquare_extrabold", 800, normal, eot otf woff2 woff);

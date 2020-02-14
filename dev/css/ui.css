@@ -34,35 +34,6 @@ Version : 1.0
 	src: url("../font/notokr_black.eot") format("embedded-opentype"), url("../font/notokr_black.woff2") format("woff2"), url("../font/notokr_black.woff") format("woff");
 }
 
-/* Nanum Square */
-@font-face {
-	font-family: "Nanum Square";
-	font-style: normal;
-	font-weight: 300;
-	src: url("../font/nsquare_light.eot") format("embedded-opentype"), url("../font/nsquare_light.otf") format("opentype"), url("../font/nsquare_light.woff2") format("woff2"), url("../font/nsquare_light.woff") format("woff");
-}
-
-@font-face {
-	font-family: "Nanum Square";
-	font-style: normal;
-	font-weight: normal;
-	src: url("../font/nsquare_regular.eot") format("embedded-opentype"), url("../font/nsquare_regular.otf") format("opentype"), url("../font/nsquare_regular.woff2") format("woff2"), url("../font/nsquare_regular.woff") format("woff");
-}
-
-@font-face {
-	font-family: "Nanum Square";
-	font-style: normal;
-	font-weight: 700;
-	src: url("../font/nsquare_bold.eot") format("embedded-opentype"), url("../font/nsquare_bold.otf") format("opentype"), url("../font/nsquare_bold.woff2") format("woff2"), url("../font/nsquare_bold.woff") format("woff");
-}
-
-@font-face {
-	font-family: "Nanum Square";
-	font-style: normal;
-	font-weight: 800;
-	src: url("../font/nsquare_extrabold.eot") format("embedded-opentype"), url("../font/nsquare_extrabold.otf") format("opentype"), url("../font/nsquare_extrabold.woff2") format("woff2"), url("../font/nsquare_extrabold.woff") format("woff");
-}
-
 /* ===== Reset ===== */
 html {
 	font-size: 1em;
