@@ -14,17 +14,14 @@
     /******************** 하위브라우저 경고 ********************/
 
     var legacy = function () {
-
         $('.ie9').find('button').on('click', function () {
             $('.ie9').fadeOut();
         });
-
     };
 
     /******************** 스크롤 애니메이션 정의 ********************/
 
     var scroll_animation = function () {
-
         var move_el = $('[data-animation]'),
             move_name,
             move_delay,
@@ -33,7 +30,6 @@
             start_point = $(window).height() * 1,
             top_btn = $('.move_top'),
             top_btn_flag = 0;
-
         move_el.addClass('wait-animation');
         $(window).on('load scroll', function () {
             scroll = $(this).scrollTop();
@@ -60,7 +56,6 @@
 
             //TOP 버튼 제어
             (scroll === 0) ? top_btn.removeClass('on') : top_btn.addClass('on');
-
             top_btn.find('button').on('click', function () {
                 if (top_btn_flag) return false;
                 top_btn_flag = 1;
@@ -72,9 +67,7 @@
                 });
                 return false;
             });
-
         });
-
     };
 
     $(function init() {
