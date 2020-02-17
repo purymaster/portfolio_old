@@ -1,16 +1,29 @@
 (function ($) {
-    $(function () {
 
-        var is_mobile = false, //모바일 판별 변수
-            scrollbar_width = window.outerWidth - $(window).width(); // 스크롤바 너비
+    var is_mobile = false, //모바일 판별 변수
+        scrollbar_width = window.outerWidth - $(window).width(); // 스크롤바 너비
 
-        /******************** 하위브라우저 경고 ********************/
+    /******************** 로딩 호출 ********************/
+
+    var loading = function () {
+        $(window).load(function () {
+            $('.loading').fadeOut(300);
+        })
+    };
+
+    /******************** 하위브라우저 경고 ********************/
+
+    var legacy = function () {
 
         $('.ie9').find('button').on('click', function () {
             $('.ie9').fadeOut();
         });
 
-        /******************** 스크롤 애니메이션 정의 ********************/
+    };
+
+    /******************** 스크롤 애니메이션 정의 ********************/
+
+    var scroll_animation = function () {
 
         var move_el = $('[data-animation]'),
             move_name,
@@ -62,5 +75,12 @@
 
         });
 
+    };
+
+    $(function init() {
+        loading();
+        legacy();
+        scroll_animation();
     });
-}(jQuery));
+
+})(jQuery);
