@@ -677,8 +677,8 @@ header span {
 }
 
 .work li a:focus, .work li a:hover {
-	-webkit-filter: grayscale(0);
-	filter: grayscale(0);
+	-webkit-filter: brightness(100%);
+	filter: brightness(100%);
 }
 
 .work li a:focus .cover, .work li a:hover .cover {
@@ -699,8 +699,8 @@ header span {
 
 @media (prefers-color-scheme: dark) {
 	.work li a {
-		-webkit-filter: grayscale(0.75);
-		filter: grayscale(0.75);
+		-webkit-filter: brightness(75%);
+		filter: brightness(75%);
 	}
 }
 

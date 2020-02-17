@@ -52,7 +52,7 @@ $projects: (
 			transition: all 0.3s;
 			&:focus,
 			&:hover {
-				filter: grayscale(0);
+				filter: brightness(100%);
 				.cover {
 					background: rgba(0, 0, 0, 0.75);
 					@include screen("tablet") {
@@ -65,7 +65,7 @@ $projects: (
 				}
 			}
 			@include themify("dark") {
-				filter: grayscale(0.75);
+				filter: brightness(75%);
 			}
 		}
 		.cover {
