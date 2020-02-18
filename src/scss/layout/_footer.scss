@@ -2,32 +2,32 @@
 
 footer {
 	margin: 50px 0;
+	font-size: 12px;
 	text-align: center;
-	.misc {
-		margin-bottom: 15px;
-		font-size: 0;
-		li {
-			display: inline;
-			margin: 0 5px;
-			a {
-				display: inline-block;
-				width: 32px;
-				height: 32px;
-				background-size: cover;
-				background-position: center;
-			}
-			&.github {
-				a {
-					background-image: url(/dev/img/ico/ico_github.png);
-					@include themify("dark") {
-						background-image: url(/dev/img/ico/ico_github_dark.png);
-					}
-				}
-			}
-		}
-	}
+	// .misc {
+	// 	margin-bottom: 15px;
+	// 	font-size: 0;
+	// 	li {
+	// 		display: inline;
+	// 		margin: 0 5px;
+	// 		a {
+	// 			display: inline-block;
+	// 			width: 32px;
+	// 			height: 32px;
+	// 			background-size: cover;
+	// 			background-position: center;
+	// 		}
+	// 		&.github {
+	// 			a {
+	// 				background-image: url(/dev/img/ico/ico_github.png);
+	// 				@include themify("dark") {
+	// 					background-image: url(/dev/img/ico/ico_github_dark.png);
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 	@include screen("tablet") {
 		margin: 30px 0;
-		font-size: 12px;
 	}
 }

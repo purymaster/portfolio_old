@@ -82,8 +82,8 @@ $size: 50px;
 
 header {
 	margin-top: 50px;
-	padding: 0.5em 0;
-	font-size: 20px;
+	padding: 1em 0;
+	font-size: 24px;
 	text-align: center;
 	span {
 		margin-left: 0.5em;
@@ -93,11 +93,12 @@ header {
 		}
 	}
 	@include screen("tablet") {
-		font-size: 18px;
 		margin-top: 30px;
+		padding: 0.5em 0;
+		font-size: 18px;
 	}
 	@include screen("mobile") {
-		font-size: 16px;
 		margin-top: 15px;
+		font-size: 16px;
 	}
 }

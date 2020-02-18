@@ -35,7 +35,7 @@ $projects: (
 	li {
 		float: left;
 		position: relative;
-		width: 25%;
+		width: 33.33%;
 		padding: 15px;
 		text-align: center;
 		@include screen("tablet") {
@@ -46,7 +46,7 @@ $projects: (
 			position: relative;
 			height: 0;
 			padding-top: 56.25%;
-			border: 1px solid #ccc;
+			border: 1px solid #e1e1e1;
 			background-size: cover;
 			background-position: center;
 			transition: all 0.3s;
@@ -54,7 +54,7 @@ $projects: (
 			&:hover {
 				filter: brightness(100%);
 				.cover {
-					background: rgba(0, 0, 0, 0.75);
+					background: rgba(0, 0, 0, 0.5);
 					@include screen("tablet") {
 						background: none;
 					}
@@ -65,6 +65,7 @@ $projects: (
 				}
 			}
 			@include themify("dark") {
+				border: 1px solid #666;
 				filter: brightness(75%);
 			}
 		}
@@ -104,16 +105,16 @@ $projects: (
 				}
 			}
 		}
-		&:nth-child(even) {
+		&:nth-child(3n + 2) {
 			top: 30px;
 		}
 		@include screen("tablet") {
+			top: 0 !important;
 			width: 50%;
+			animation-name: fadeInUp !important;
 		}
 		@include screen("mobile") {
 			width: 100%;
-			top: 0 !important;
-			animation-name: fadeInUp !important;
 		}
 		@each $project in $projects {
 			&.#{$project} {
@@ -122,7 +123,5 @@ $projects: (
 				}
 			}
 		}
-	}
-	@include screen("tablet") {
 	}
 }
