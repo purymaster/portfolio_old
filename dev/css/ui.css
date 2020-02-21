@@ -496,6 +496,7 @@ label {
 	margin: 0 0.5em;
 	padding: 0 1em;
 	border: 1px solid #e1e1e1;
+	background: #fff;
 	color: #86b300;
 	font-size: 14px;
 	font-weight: 700;
@@ -511,6 +512,7 @@ label {
 @media (prefers-color-scheme: dark) {
 	.btn_wrap a {
 		border: 1px solid #666;
+		background: #252525;
 		color: #74dfc4;
 	}
 	.btn_wrap a:focus, .btn_wrap a:hover {

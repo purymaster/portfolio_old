@@ -10,6 +10,7 @@
 		margin: 0 0.5em;
 		padding: 0 1em;
 		border: 1px solid #e1e1e1;
+		background: #fff;
 		color: $color_sub;
 		font-size: 14px;
 		font-weight: 700;
@@ -21,6 +22,7 @@
 		}
 		@include themify("dark") {
 			border: 1px solid #666;
+			background: map-deep-get($themes, "dark", "color_bg");
 			color: map-deep-get($themes, "dark", "color_sub");
 			&:focus,
 			&:hover {
