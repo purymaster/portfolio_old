@@ -7,37 +7,23 @@ Version : 1.0
 /* ===== Font ===== */
 /* Noto Sans */
 @font-face {
-	font-family: "Noto Sans KR";
+	font-family: "Cabin";
 	font-style: normal;
 	font-weight: normal;
-	src: url("../font/notokr_regular.eot") format("embedded-opentype"), url("../font/notokr_regular.woff2") format("woff2"), url("../font/notokr_regular.woff") format("woff");
+	src: url("../font/Cabin-Regular.eot") format("embedded-opentype"), url("../font/Cabin-Regular.woff2") format("woff2"), url("../font/Cabin-Regular.woff") format("woff");
 }
 
 @font-face {
-	font-family: "Noto Sans KR";
-	font-style: normal;
-	font-weight: 500;
-	src: url("../font/notokr_medium.eot") format("embedded-opentype"), url("../font/notokr_medium.woff2") format("woff2"), url("../font/notokr_medium.woff") format("woff");
-}
-
-@font-face {
-	font-family: "Noto Sans KR";
+	font-family: "Cabin";
 	font-style: normal;
 	font-weight: 700;
-	src: url("../font/notokr_bold.eot") format("embedded-opentype"), url("../font/notokr_bold.woff2") format("woff2"), url("../font/notokr_bold.woff") format("woff");
-}
-
-@font-face {
-	font-family: "Noto Sans KR";
-	font-style: normal;
-	font-weight: 900;
-	src: url("../font/notokr_black.eot") format("embedded-opentype"), url("../font/notokr_black.woff2") format("woff2"), url("../font/notokr_black.woff") format("woff");
+	src: url("../font/Cabin-Bold.eot") format("embedded-opentype"), url("../font/Cabin-Bold.woff2") format("woff2"), url("../font/Cabin-Bold.woff") format("woff");
 }
 
 /* ===== Reset ===== */
 html {
 	font-size: 1em;
-	letter-spacing: -0.025em;
+	letter-spacing: 0;
 }
 
 html,
@@ -127,7 +113,7 @@ button {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-family: "Noto Sans KR", "Helvetica Neue", "Apple SD Gothic Neo", "Droid Sans", "Malgun Gothic", "맑은 고딕", Dotum, 돋움, sans-serif;
+	font-family: "Cabin", "Helvetica Neue", "Apple SD Gothic Neo", "Droid Sans", "Malgun Gothic", "맑은 고딕", Dotum, 돋움, sans-serif;
 	font-size: 100%;
 	vertical-align: baseline;
 	-webkit-font-smoothing: antialiased;
@@ -152,9 +138,9 @@ textarea {
 	border: none;
 	border-radius: 0;
 	background: none;
-	font-family: "Noto Sans KR", "Helvetica Neue", "Apple SD Gothic Neo", "Droid Sans", "Malgun Gothic", "맑은 고딕", Dotum, 돋움, sans-serif;
+	font-family: "Cabin", "Helvetica Neue", "Apple SD Gothic Neo", "Droid Sans", "Malgun Gothic", "맑은 고딕", Dotum, 돋움, sans-serif;
 	font-size: 100%;
-	letter-spacing: -0.025em;
+	letter-spacing: 0;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;

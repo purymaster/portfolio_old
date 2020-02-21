@@ -6,7 +6,5 @@
 /* ===== Font ===== */
 
 /* Noto Sans */
-@include font-face("Noto Sans KR", "../font/notokr_regular", normal, normal, eot woff2 woff);
-@include font-face("Noto Sans KR", "../font/notokr_medium", 500, normal, eot woff2 woff);
-@include font-face("Noto Sans KR", "../font/notokr_bold", 700, normal, eot woff2 woff);
-@include font-face("Noto Sans KR", "../font/notokr_black", 900, normal, eot woff2 woff);
+@include font-face("Cabin", "../font/Cabin-Regular", normal, normal, eot woff2 woff);
+@include font-face("Cabin", "../font/Cabin-Bold", 700, normal, eot woff2 woff);
