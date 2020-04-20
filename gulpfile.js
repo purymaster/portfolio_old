@@ -1,104 +1,110 @@
-const gulp = require('gulp'),
-	run = require('run-sequence'),
-	clean = require('gulp-clean'),
-	cache = require('gulp-cached'),
-	sync = require('browser-sync').create(),
-	include = require('gulp-file-include'),
-	sass = require('gulp-sass'),
-	prefix = require('gulp-autoprefixer'),
-	pretty = require('gulp-pretty-html'),
-	beautify = require('gulp-beautify'),
-	sourcemap = require('gulp-sourcemaps'),
-	imagemin = require('gulp-imagemin'),
-	config = require('./config.js'),
-	removeline = require('gulp-remove-empty-lines'),
-	combConfig = require('./csscomb.json');
+/*
+
+npm install gulp --save-dev
+npm install gulp -g
+npm install gulp-cli -g
+
+npm install del --save-dev
+npm install gulp-file-include --save-dev
+npm install gulp-wait --save-dev
+npm install gulp-pretty-html --save-dev
+npm install gulp-remove-empty-lines --save-dev
+npm install browser-sync --save-dev
+npm install gulp-autoprefixer --save-dev
+npm install gulp-beautify --save-dev
+npm install gulp-imagemin --save-dev
+npm install gulp-sourcemaps --save-dev
+
+*/
+
+const gulp = require('gulp')
+	, del = require('del')
+	, include = require('gulp-file-include')
+	, pretty = require('gulp-pretty-html')
+	, removeline = require('gulp-remove-empty-lines')
+	, sync = require('browser-sync').create()
+	, prefix = require('gulp-autoprefixer')
+	, beautify = require('gulp-beautify')
+	, imagemin = require('gulp-imagemin')
+	, sass = require('gulp-sass')
+	, sourcemap = require('gulp-sourcemaps')
+	, config = require('./config.js');
 sass.compiler = require('node-sass');
 
+// Error
+function handleError(err) {
+	console.log(`
+********** ERROR **********
+
+${err.message}
+
+********** ERROR **********
+	`);
+	this.emit('end');
+};
+
 // Clean
-gulp.task('clean', () => {
-	return gulp
-		.src(config.dev)
-		.pipe(clean());
-});
+function cleanFile(done) {
+	del(config.devAll);
+	done();
+};
 
 // HTML
-gulp.task('html', () => {
+function htmlBuild(done) {
 	return gulp
 		.src(config.srcPath.html)
-		.pipe(cache('html'))
 		.pipe(include({
 			prefix: '@@',
 			basepath: config.srcPath.include
-		}))
+		}).on('error', handleError))
 		.pipe(pretty({
 			indent_with_tabs: true,
 			unformatted: []
 		}))
-		// .pipe(removeline())
+		.pipe(removeline())
 		.pipe(gulp.dest(config.devPath.html))
-		.pipe(
-			sync.reload({
-				stream: true
-			})
-		);
-});
+	done();
+};
 
-// SASS
-gulp.task('scss', () => {
+function cssBuild(done) {
 	return gulp
-		.src(config.srcPath.scss)
+		.src(config.srcPath.scss, { since: gulp.lastRun(cssBuild) })
 		.pipe(sourcemap.init())
 		.pipe(sass({
 			outputStyle: 'expanded',
 			indentWidth: 1,
 			indentType: 'tab',
-		}).on('error', sass.logError))
+		}).on('error', handleError))
 		.pipe(prefix({
 			overrideBrowserslist: ['last 2 versions'],
 			cascade: false
 		}))
 		.pipe(sourcemap.write('./'))
 		.pipe(gulp.dest(config.devPath.css))
-		.pipe(
-			sync.reload({
-				stream: true
-			})
-		);
-});
-
-// Fonts
-gulp.task('font', () => {
-	return gulp
-		.src(config.srcPath.font)
-		.pipe(cache('font'))
-		.pipe(gulp.dest(config.devPath.font))
-		.pipe(
-			sync.reload({
-				stream: true
-			})
-		);
-});
+	done();
+};
 
 // JS
-gulp.task('js', () => {
+function jsBuild(done) {
 	return gulp
-		.src(config.srcPath.js)
-		.pipe(cache('js'))
+		.src(config.srcPath.js, { since: gulp.lastRun(jsBuild) })
 		.pipe(beautify())
 		.pipe(gulp.dest(config.devPath.js))
-		.pipe(
-			sync.reload({
-				stream: true
-			})
-		);
-});
+	done();
+};
+
+// Fonts
+function fontBuild(done) {
+	return gulp
+		.src(config.srcPath.font, { since: gulp.lastRun(fontBuild) })
+		.pipe(gulp.dest(config.devPath.font))
+	done();
+};
 
 // Image
-gulp.task('img', () => {
+function imageBuild(done) {
 	return gulp
-		.src(config.srcPath.img)
-		.pipe(cache('img'))
+		.src(config.srcPath.img, { since: gulp.lastRun(imageBuild) })
 		.pipe(imagemin({
 			progressive: true,
 			interlaced: true,
@@ -108,15 +114,11 @@ gulp.task('img', () => {
 			use: []
 		}))
 		.pipe(gulp.dest(config.devPath.img))
-		.pipe(
-			sync.reload({
-				stream: true
-			})
-		);
-});
+	done();
+};
 
-// Sync
-gulp.task('sync', ['html'], () => {
+// BrowserSync
+function browserSync(done) {
 	sync.init({
 		port: 8080,
 		server: {
@@ -124,28 +126,26 @@ gulp.task('sync', ['html'], () => {
 			index: 'index.html'
 		},
 		browser: ['google chrome', 'chrome']
-		// browser: ['google chrome', 'firefox', 'iexplore', 'opera', 'safari']
+		// browser: ['google chrome', 'chrome', 'firefox', 'iexplore', 'opera', 'safari']
 	});
-});
+	done();
+};
+
+// Reload
+function reload(done) {
+	sync.reload();
+	done();
+};
 
 // Watch
-gulp.task('watch', () => {
-	gulp.watch([config.srcPath.html, config.srcPath.include], ['html']);
-	gulp.watch(config.srcPath.scss, ['scss']);
-	gulp.watch(config.srcPath.font, ['font']);
-	gulp.watch(config.srcPath.js, ['js']);
-	gulp.watch(config.srcPath.img, ['img']);
-});
+function watchFile(done) {
+	gulp.watch(config.srcPath.html, gulp.series(htmlBuild, gulp.parallel(reload)));
+	gulp.watch(config.srcPath.include, gulp.series(htmlBuild, gulp.parallel(reload)));
+	gulp.watch(config.srcPath.scss, gulp.series(cssBuild, gulp.parallel(reload)));
+	gulp.watch(config.srcPath.js, gulp.series(jsBuild, gulp.parallel(reload)));
+	gulp.watch(config.srcPath.font, gulp.series(fontBuild, gulp.parallel(reload)));
+	gulp.watch(config.srcPath.img, gulp.series(imageBuild, gulp.parallel(reload)));
+	done();
+};
 
-// Default
-gulp.task('default', () => {
-	run('clean', [
-		'html',
-		'scss',
-		'js',
-		'font',
-		'img',
-		'sync',
-		'watch'
-	]);
-});
+gulp.task('default', gulp.series(cleanFile, gulp.parallel(htmlBuild, cssBuild, jsBuild, fontBuild, imageBuild), browserSync, watchFile));
