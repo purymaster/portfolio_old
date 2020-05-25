@@ -6,7 +6,6 @@ npm install gulp-cli -g
 
 npm install del --save-dev
 npm install gulp-file-include --save-dev
-npm install gulp-wait --save-dev
 npm install gulp-pretty-html --save-dev
 npm install gulp-remove-empty-lines --save-dev
 npm install browser-sync --save-dev
