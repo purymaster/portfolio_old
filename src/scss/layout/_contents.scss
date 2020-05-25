@@ -119,7 +119,7 @@ $projects: (
 		@each $project in $projects {
 			&.#{$project} {
 				a {
-					background-image: url(../img/thumb/thumb_#{$project}.gif);
+					background-image: url(../img/thumb/thumb_#{$project}.jpg);
 				}
 			}
 		}
