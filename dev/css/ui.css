@@ -824,6 +824,10 @@ header span {
 	}
 }
 
+.work li.miraen a {
+	background-image: url(../img/thumb/thumb_miraen.jpg);
+}
+
 .work li.arisys a {
 	background-image: url(../img/thumb/thumb_arisys.jpg);
 }
